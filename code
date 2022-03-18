@@ -1,0 +1,11 @@
+#include <stdio.h>
+static char input[2048];
+int main(int argc, char** argv) {
+    puts("halflisp version 0.0.1");
+    puts("press ctrl-c to cancel it");
+    while(1) {
+        fputs("halflisp>",stdout);
+        fgets(input,2048,stdin);
+        printf("Your input is %s",input);
+    }
+}
