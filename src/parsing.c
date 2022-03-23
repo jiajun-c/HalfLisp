@@ -18,12 +18,12 @@ int main(int argc, char** argv) {
     ",
     Number, Operator, Expr, Lispy);
   
-  puts("Lispy Version 0.0.0.0.2");
+  puts("orz Version 0.0.0.0.2");
   puts("Press Ctrl+c to Exit\n");
   
   while (1) {
   
-    char* input = readline("lispy> ");
+    char* input = readline("orz| ");
     add_history(input);
     
     /* Attempt to parse the user input */
