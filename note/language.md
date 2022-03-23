@@ -35,3 +35,49 @@ The Adj and the n is the things define by myself, while the free and teh
 mpcf_strfold will be explained in the following chapters.
 
 
+## Natural grammars
+
+mps makes it more natural for us to write grammer.
+
+Using the mpcf_strfold or the free can make it easier for us to join or discard 
+inputs.
+
+```c
+mpc_parser_t* Adjective = mpc_new("adjective");
+mpc_parser_t* Noun      = mpc_new("noun");
+mpc_parser_t* Phrase    = mpc_new("phrase");
+mpc_parser_t* Doge      = mpc_new("doge");
+
+mpca_lang(MPCA_LANG_DEFAULT,
+  "                                           \
+    adjective : \"wow\" | \"many\"            \
+              |  \"so\" | \"such\";           \
+    noun      : \"lisp\" | \"language\"       \
+              | \"book\" | \"build\" | \"c\"; \
+    phrase    : <adjective> <noun>;           \
+    doge      : <phrase>*;                    \
+  ",
+  Adjective, Noun, Phrase, Doge);
+
+/* Do some parsing here... */
+
+mpc_cleanup(4, Adjective, Noun, Phrase, Doge);
+```
+
+The special symbols used to define the rukes on the right hand side works as follows.
+|character|the meaning|
+|-|-|
+|"ab"|The string ab is required|
+|'a'|The character a is required|
+|'a' 'b'|First the a is required and the b is required|
+|'a'\|'b'|The 'a' or the 'b' is required|
+|'a'\*|zero or more 'a' are required|
+|'a'+|One or more 'a' are required|
+|<abbc>|The rule called abbc is required|
+
+
+
+
+
+
+
