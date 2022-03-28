@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
     ",
     Number, Operator, Expr, Lispy);
   
-  puts("orz Version 0.0.0.0.2");
+  puts("orz Version 0.0.0.2");
   puts("Press Ctrl+c to Exit\n");
   
   while (1) {
